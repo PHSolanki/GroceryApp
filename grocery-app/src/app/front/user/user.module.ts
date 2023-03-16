@@ -10,10 +10,7 @@ import { CategoryComponent } from '../catalogue/category/category.component';
 
 @NgModule({
   declarations: [
-    LoginComponent,
-    RegistrationComponent,
-    UserProfileComponent,
-    CategoryComponent
+  
   ],
   imports: [
     CommonModule,

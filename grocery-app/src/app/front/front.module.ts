@@ -8,8 +8,8 @@ import { CategoryComponent } from './catalogue/category/category.component';
 
 @NgModule({
   declarations: [
-    HomeComponent,
-    CategoryComponent
+
+    
   ],
   imports: [
     CommonModule,

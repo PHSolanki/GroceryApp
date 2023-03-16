@@ -1,156 +1,42 @@
+ <!-- Start of Explore categories navbar -->
+
 <nav class="navbar navbar-expand-lg bg-transparent">
-    <div class="container-fluid">
-      
-      <h2 class="navbar-brand m-3" href="#">Explore Categories</h2>
-  
-        <ul class="nav  justify-content-end m-3 ">
-          <li class="nav-item">
-            <a class="nav-link " aria-current="page" href="">All</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Vegetables</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Fruits</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Coffee And Teas</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Meat</a>
-          </li>
-        </ul>
-    
-    </div>
-  </nav>
+  <div class="container-fluid">  
+    <h2 class="navbar-brand m-3" href="#">Explore Categories</h2>
+      <ul class="nav  justify-content-end m-3 ">
+        <li class="nav-item" *ngFor="let item of navCategories">
+          <a class="nav-link " aria-current="page" [routerLink]="['/front/catalogue/product-list']"  href="">{{item.name}}</a>
+        </li>
+      </ul>
+  </div>
+</nav>
 
- 
-  <div id="carouselExampleControls" class="carousel slide" data-ride="carousel" >
-    <div class="carousel-inner">
-      <div class="carousel-item active" >
-        <div class="cards-wrapper w-auto " >
+ <!-- End of Explore categories navbar -->
+
+
+<!-- Start of Explore categories carousel  -->
+
+<carousel [autoplay]="true" [pauseOnHover]="true" [height]="300">
+
+    <div class="carousel-cell" *ngFor="let item of categories">
         <div class="card bg-warning-subtle p-3 m-2">
-         <img src="assets/fruits.jpg" alt="" width="120" height="120"/>
-         <div class="card-body text-center"><p>Fruits</p><small>Fruits</small></div>
+            <a [routerLink]="['/front/catalogue/product-list']" routerLinkActive="router-link-active"><img [src]="item.source" alt="" width="120" height="120"/></a>
+            <div class="card-body text-center">
+                <p>{{item.name}}</p>
+                <small>{{item.num_of_items}}
+                    items</small>
+            </div>
         </div>
-        <div class="card d-none d-md-block bg-warning-subtle  p-3 m-2">
-          <img src="assets/fruits.jpg" alt="" width="120" height="120"/>
-          <div class="card-body text-center"><p>Fruits</p><small>Fruits</small></div> 
-        </div>
-
-        <div class="card d-none d-md-block bg-warning-subtle  p-3 m-2">
-          <img src="assets/fruits.jpg" alt="" width="120" height="120"/>
-          <div class="card-body text-center"><p>Fruits</p><small>20 items</small></div>   
-        </div>
-
-        <div class="card d-none d-md-block bg-warning-subtle  p-3 m-2">
-          <img src="assets/fruits.jpg" alt="" width="120" height="120"/>
-          <div class="card-body text-center"><p>Fruits</p><small>20 items</small></div>
-        </div>
-
-        <div class="card d-none d-md-block bg-warning-subtle  p-3 m-2">
-          <img src="assets/fruits.jpg" alt="" width="120" height="120"/>
-          <div class="card-body text-center"><p>Fruits</p><small>20 items</small></div>
-        </div>
-
-        <div class="card d-none d-md-block bg-warning-subtle  p-3 m-2">
-          <img src="assets/fruits.jpg" alt="" width="120" height="120"/>
-          <div class="card-body text-center"><p>Fruits</p><small>20 items</small></div>
-        </div>
-
-        <div class="card d-none d-md-block bg-warning-subtle  p-3 m-2">
-          <img src="assets/fruits.jpg" alt="" width="120" height="120"/>
-          <div class="card-body text-center"><p>Fruits</p><small>20 items</small></div>
-        </div>
-
-        <div class="card d-none d-md-block bg-warning-subtle  p-3 m-2">
-          <img src="assets/fruits.jpg" alt="" width="120" height="120"/>
-          <div class="card-body text-center"><p>Fruits</p><small>20 items</small></div>
-        </div>
-      </div>
     </div>
 
+</carousel>
 
-
-      <div class="carousel-item" >
-        <div class="cards-wrapper">
-          <div class="card d-none d-md-block bg-warning-subtle  p-3 m-2">
-            <img src="assets/vegetables.jpg" alt="" width="120" height="120"/>
-            <div class="card-body text-center">
-                <p>Vegetables</p>
-                <small>20 items</small>
-            </div>
-        </div>
-          <div class="card d-none d-md-block bg-warning-subtle  p-3 m-2">
-            <img src="assets/vegetables.jpg" alt="" width="120" height="120"/>
-            <div class="card-body text-center">
-                <p>Vegetables</p>
-                <small>20 items</small>
-            </div>
-          </div>
-          <div class="card d-none d-md-block bg-warning-subtle  p-3 m-2">
-            <img src="assets/vegetables.jpg" alt="" width="120" height="120"/>
-            <div class="card-body text-center">
-                <p>Vegetables</p>
-                <small>20 items</small>
-            </div>
-          </div>
-          <div class="card d-none d-md-block bg-warning-subtle  p-3 m-2">
-            <img src="assets/vegetables.jpg" alt="" width="120" height="120"/>
-            <div class="card-body text-center">
-                <p>Vegetables</p>
-                <small>20 items</small>
-            </div>
-          </div>
-          <div class="card d-none d-md-block bg-warning-subtle  p-3 m-2">
-            <img src="assets/vegetables.jpg" alt="" width="120" height="120"/>
-            <div class="card-body text-center">
-                <p>Vegetables</p>
-                <small>20 items</small>
-            </div>
-          </div>
-          <div class="card d-none d-md-block bg-warning-subtle  p-3 m-2">
-            <img src="/assets/vegetables.jpg" alt="" width="120" height="120"/>
-            <div class="card-body text-center">
-                <p>Vegetables</p>
-                <small>20 items</small>
-            </div>
-          </div>
-          <div class="card d-none d-md-block bg-warning-subtle  p-3 m-2">
-            <img src="assets/vegetables.jpg" alt="" width="120" height="120"/>
-            <div class="card-body text-center">
-                <p>Vegetables</p>
-                <small>20 items</small>
-            </div>
-          </div>
-          <div class="card d-none d-md-block bg-warning-subtle  p-3 m-2">
-            <img src="assets/vegetables.jpg" alt="" width="120" height="120"/>
-            <div class="card-body text-center">
-                <p>Vegetables</p>
-                <small>20 items</small>
-            </div>
-          </div>  
-        </div>
-      </div>
-      
- 
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Next</span>
-    </button>
-  </div>
-  </div>
-
-
-
-
+  <!-- End of Explore categories carousel  -->
   
 
-              <br>
+      
+ 
+
               <!-- <div class="card-deck">
                 <div class="card">
                   <img class="card-img-top" src="assets/fruits.jpg"  width="239" height="200" alt="Card image cap">
@@ -192,9 +78,4 @@
                     <p class="card-text"><small class="text-muted">40 items</small></p>
                   </div>
               </div>
-              </div> -->
-
-
-            
-    
-              
+              </div> -->       

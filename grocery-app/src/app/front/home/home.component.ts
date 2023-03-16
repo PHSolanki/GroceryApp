@@ -8,6 +8,14 @@ import { Component } from '@angular/core';
 })
 export class HomeComponent {
 
+  navCategories=[
+    {name:'All'},
+    {name:'Vegetables'},
+    {name:'Fruits'},
+    {name:'Coffee And Teas'},
+    {name:'Meat'}
+  ]
+
   carouselSlide=[
     {source: 'assets/Carousel-slide1.jpg'},
     {source: 'assets/Carousel-slide2.jpg'},

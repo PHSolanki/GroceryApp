@@ -9,6 +9,7 @@
 .cards-wrapper {
     display: flex;
     justify-content: center;
+    
   }
   .card img {
     max-width: 100%;

@@ -10,10 +10,8 @@ import { HomeComponent } from '../home/home.component';
 
 @NgModule({
   declarations: [
-    CategoryComponent,
-    ProductListComponent,
-    ProductDetailsComponent,
-    HomeComponent
+ 
+  
   ],
   imports: [
     CommonModule,
