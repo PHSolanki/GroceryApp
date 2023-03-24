@@ -1,11 +1,10 @@
-import { Component } from '@angular/core';
+import { Injectable } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';;
 
-@Component({
-  selector: 'app-product-list',
-  templateUrl: './product-list.component.html',
-  styleUrls: ['./product-list.component.css']
+@Injectable({
+  providedIn: 'root'
 })
-export class ProductListComponent {
+export class ProductListService {
 
   featuredProducts=[
     {source:'/assets/featured2.PNG' , name:'Potatos 1kg' , category:'Vegetables' , rater:'By Mr.food' , price:'14.99' , moneyOfferPrice:'10'},
@@ -22,13 +21,25 @@ export class ProductListComponent {
     {source:'/assets/topsells1.PNG' , name:'Orange 500gg' , category:'Fruits' , rater:'By Mr.food' , price:'14.99',moneyOfferPrice:'10'},
   ]
 
-  getData:string = "all"
-  filterData(data:any){
-      this.getData=data
-      // console.log(this.getData);
-      
-  }
+  category: any;
 
+  constructor(private route:ActivatedRoute) { }
 
-  
+  ProductListShow(){
+    this.route.paramMap.subscribe(params => {
+      // Read category parameter from URL
+      const categoryOnRoute = params.get('category');
+      console.log(categoryOnRoute)
+      if (categoryOnRoute=='all') {
+        // Filter products array based on category
+        console.log(this.featuredProducts)
+        this.category='Fruits And Vegetables'
+        return this.featuredProducts
+      }else{
+        this.featuredProducts = this.featuredProducts.filter(featuredProducts => featuredProducts.category === categoryOnRoute);
+        this.category=categoryOnRoute
+        return this.featuredProducts
+      }
+    });
+}
 }
