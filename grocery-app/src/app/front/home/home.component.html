@@ -54,10 +54,10 @@
 <!-- featured product cards -->
 <carousel [autoplay]="true" [pauseOnHover]="true" [height]="300">
 
-      <div class="carousel-cell" *ngFor="let item of featuredProducts">
+      <div class="carousel-cell" *ngFor="let item of productsArray">
           <div class="card m-2">
-              <img class="card-img-top" [src]="item.source" alt="Card image cap" />
-              <div class="card-body">
+              <img class="card-img-top" [src]="item.source" alt="Card image cap" height="10" />
+              <div class="card-body" routerLink="product-details/{{item.id}}">
                   <h5 class="card-title">{{item.name}}</h5>
                   <p class="card-text">{{item.category}}</p>
                   <ul class="list-unstyled list-inline my-2">

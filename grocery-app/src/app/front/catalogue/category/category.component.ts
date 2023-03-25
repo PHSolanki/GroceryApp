@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Router } from '@angular/router';
+import { Router,ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-category',
@@ -8,8 +8,17 @@ import { Router } from '@angular/router';
   styleUrls: ['./category.component.css']
 })
 export class CategoryComponent {
-  constructor(private router:Router){}
+  constructor(private router:Router , private activatedroute:ActivatedRoute){}
   food: any;
+
+  category:any;
+  category_name:any;
+
+  ngOnInit(){
+    this.category_name=this.activatedroute.snapshot.paramMap.get('name');
+    this.category=this.categories.find(x=>x.name==this.category_name)
+
+  }
 
   navCategories=[
     {name:'All'},
