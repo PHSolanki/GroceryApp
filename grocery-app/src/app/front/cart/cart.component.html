@@ -9,17 +9,17 @@
                 <th>Price</th>
                 <th>Sub-total</th>
             </tr>
-            <tr>
-                <td><img src="assets/topsells1.PNG" alt=""></td>
-                <td>Orange</td>
+            <tr *ngFor="let item of getCartDetails">
+                <td><img src="{{item.source}}" alt=""></td>
+                <td>{{item.name}}</td>
                 <td>
                     <div class="button my-5 p-2">
-                        <button class="btn btn-light" >-</button>
-                        <span>1</span>
-                        <button class="btn btn-light" >+</button>
+                        <button class=" btn-light" (click)="decQty(item.id,item.quantity)" >-</button>
+                        <span>{{item.quantity}}</span>
+                        <button class=" btn-light" (click)="incQty(item.id,item.quantity)" >+</button>
                       </div>
                 </td>
-                <td>12$</td>
+                <td>{{item.price}}$</td>
                 <td>12$</td>
             </tr>
         </table>

@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-product-details',
@@ -34,7 +33,6 @@ export class ProductDetailsComponent implements OnInit{
   ngOnInit(): void{
      this.productId = this.activatedroute.snapshot.paramMap.get('id');
      this.product= this.productsArray.find(x => x.id == this.productId)
-
   }
 
   getValue() {
@@ -43,7 +41,6 @@ export class ProductDetailsComponent implements OnInit{
 
   increment(product: any){
     product.quantity=product.quantity+1;
-    
   }
 
   decrement(product: any){
@@ -51,6 +48,41 @@ export class ProductDetailsComponent implements OnInit{
       product.quantity=product.quantity-1;
     }else{
       product.quantity=1
+    }
+  }
+
+  itemsCart:any=[]
+
+  addToCart(category: any){
+
+    alert("Product Successfully added into cart");
+
+    console.log(category);
+
+    let cartDataNull=localStorage.getItem('localCart');
+    if(cartDataNull == null){
+      let storedData : any = []
+      storedData.push(category)
+      localStorage.setItem('localCart' ,JSON.stringify(storedData)) 
+    }
+    else{
+      var id = category.id;
+      let index : number = -1;
+      this.itemsCart=JSON.parse(localStorage.getItem('localCart')!)
+      for(let i=0 ; i<this.itemsCart.length ; i++){
+        if(parseInt(id) == parseInt(this.itemsCart[i].id)){
+          this.itemsCart.quantity = category.quantity;
+          index = i;
+          break          
+        }
+      }
+      if(index == -1){
+        this.itemsCart.push(category);
+        localStorage.setItem('localCart' , JSON.stringify(this.itemsCart))
+      }
+      else{
+        localStorage.setItem('localCart' ,JSON.stringify(this.itemsCart))
+      }
     }
   }
 
