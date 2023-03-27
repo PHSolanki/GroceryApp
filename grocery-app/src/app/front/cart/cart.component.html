@@ -5,22 +5,46 @@
             <tr>
                 <th>Image</th>
                 <th>Name</th>
-                <th>Quantity</th>
                 <th>Price</th>
+                <th>Quantity</th>
                 <th>Sub-total</th>
+                <th>Remove Item</th>
             </tr>
             <tr *ngFor="let item of getCartDetails">
                 <td><img src="{{item.source}}" alt=""></td>
                 <td>{{item.name}}</td>
+                <td>{{item.price}}$</td>
                 <td>
                     <div class="button my-5 p-2">
-                        <button class=" btn-light" (click)="decQty(item.id,item.quantity)" >-</button>
+                        <button class=" btn-light" (click)="decQty(item)" >-</button>
                         <span>{{item.quantity}}</span>
-                        <button class=" btn-light" (click)="incQty(item.id,item.quantity)" >+</button>
+                        <button class=" btn-light" (click)="incQty(item)" >+</button>
                       </div>
                 </td>
-                <td>{{item.price}}$</td>
-                <td>12$</td>
+                <td>{{item.quantity * item.price}}</td>
+                <td><button class="delete" (click)="singleDelete(item.id)"><i class="fas fa-trash"></i></button></td>
+            </tr>
+        </table>
+    </div>
+    <br>
+    <div class="table-responsive container d-flex justify-content-end mt-3 mb-3">
+        <table>
+            <tr>
+                <td class="fs-6">Subtotal:</td>
+                <td class="fs-6">{{ subTotal | currency}}</td>
+            </tr>
+            <tr>
+                <td class="fs-6">Delivery Charges :</td>
+                <td class="fs-6">---</td>
+            </tr>
+            <tr class="mb-2">
+                <td class="fs-6 fw-bolder">Total Price:</td>
+                <td class="fs-6 fw-bolder">{{ subTotal | currency}}</td>
+            </tr>
+            <tr>
+                <td colspan="2" class="text-center">
+                    <button type="button" class="btn btn-success w-100">Checkout</button>
+                </td>
             </tr>
         </table>
     </div>

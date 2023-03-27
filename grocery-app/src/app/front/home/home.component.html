@@ -45,7 +45,8 @@
     <h2 class="navbar-brand m-3" href="#">Featured Products</h2>
       <ul class="nav  justify-content-end m-3 ">
         <li class="nav-item" *ngFor="let item of navCategories">
-          <a class="nav-link " aria-current="page" href="">{{item.name}}</a>
+          <a class="nav-link " aria-current="page" routerLink="/front/catalogue/product-list" *ngIf="item.name=='All'">All</a>
+          <a class="nav-link " aria-current="page" routerLink="/front/catalogue/product-list/{{item.name}}" *ngIf="item.name!=='All'">{{item.name}}</a>
         </li>
       </ul>
   </div>
@@ -57,7 +58,7 @@
       <div class="carousel-cell" *ngFor="let item of productsArray">
           <div class="card m-2">
               <img class="card-img-top" [src]="item.source" alt="Card image cap" height="10" />
-              <div class="card-body" routerLink="product-details/{{item.id}}">
+              <div class="card-body" routerLink="/front/catalogue/product-details/{{item.id}}">
                   <h5 class="card-title">{{item.name}}</h5>
                   <p class="card-text">{{item.category}}</p>
                   <ul class="list-unstyled list-inline my-2">
@@ -86,7 +87,7 @@
       <h3><b>Top Sells</b></h3><br>
       <ng-container *ngFor="let item of topsells">
 
-        <div class="product-container mb-1"  >
+        <div class="product-container mb-1" routerLink="/front/catalogue/product-details/{{item.id}}" >
           <div><img class="image-container" [src]="item.source" alt="" style="max-height: 100px; max-width: 100px;" ></div>
         <div>
             <div class="name-container">{{item.name}}</div>
@@ -109,7 +110,7 @@
     <h3><b>Top Rated</b></h3><br>
     <ng-container *ngFor="let item of toprated">
 
-      <div class="product-container" >
+      <div class="product-container" routerLink="/front/catalogue/product-details/{{item.id}}" >
         <div><img class="image-container" [src]="item.source" alt="" style="max-height: 80px; max-width: 80px;" ></div>
         <div>
           <div class="name-container">{{item.name}}</div>
@@ -135,7 +136,7 @@
 
   <ng-container *ngFor="let item of trendingItems">
 
-    <div class="product-container" >
+    <div class="product-container" routerLink="/front/catalogue/product-details/{{item.id}}" >
       <div><img class="image-container" [src]="item.source" alt="" style="max-height: 80px; max-width: 80px;" ></div>
       <div>
         <div class="name-container">{{item.name}}</div>

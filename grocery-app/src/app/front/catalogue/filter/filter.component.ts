@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Output } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-filter',
@@ -6,6 +7,13 @@ import { Component, EventEmitter, Output } from '@angular/core';
   styleUrls: ['./filter.component.css']
 })
 export class FilterComponent {
+
+
+  constructor(private currentProduct:ActivatedRoute){}
+
+  ngOnInit(){
+    this.getProduct()
+  }
 
   selectedValue:any ='all'
 
@@ -16,4 +24,16 @@ export class FilterComponent {
     this.selectCategory.emit(this.selectedValue)
     // console.log(this.selectedValue) 
   }
+
+  getProduct(){
+    this.currentProduct.paramMap.subscribe((x)=>{
+      if(x.get('name')==null){
+        this.selectedValue = "all"
+      }else{
+        this.selectedValue= x.get('name')
+      }
+    })
 }
+}
+
+

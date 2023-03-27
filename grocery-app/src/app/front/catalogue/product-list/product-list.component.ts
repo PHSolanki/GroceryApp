@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-product-list',
@@ -6,6 +7,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./product-list.component.css']
 })
 export class ProductListComponent {
+
+  constructor(private currentProduct:ActivatedRoute){}
+
+  ngOnInit(){
+    this.getProduct()
+  }
 
   productsArray=[
     {id:1, source:'/assets/featured2.PNG' , quantity:1, name:'Potatos' , category:'Vegetables' , rater:'By Mr.food' , price:'14.99' , moneyOfferPrice:'10'},
@@ -22,22 +29,22 @@ export class ProductListComponent {
     {id:12, source:'/assets/topsells1.PNG' , quantity:1, name:'Orange ' , category:'Fruits' , rater:'By Mr.food' , price:'14.99',moneyOfferPrice:'10'}
   ]
 
-  getData:string = "all"
+  getData:string | null = "all"
 
   filterData(data:any){
       this.getData=data
       console.log(this.getData);  
   }
 
-  // getProduct(){
-  //   this.currentProduct.paramMap.subscribe((x)=>{
-  //     if(x.get('name')==null){
-  //       this.getData = "all"
-  //     }else{
-  //       this.getData= x.get('name')
-  //     }
-  //   })
-  // }
+  getProduct(){
+    this.currentProduct.paramMap.subscribe((x)=>{
+      if(x.get('name')==null){
+        this.getData = "all"
+      }else{
+        this.getData= x.get('name')
+      }
+    })
+  }
 
 
   

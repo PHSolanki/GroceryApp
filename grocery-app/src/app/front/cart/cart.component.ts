@@ -9,6 +9,7 @@ export class CartComponent {
 
   ngOnInit(){
     this.cartDetails()
+    this.getTotal()
   }
 
   productsArray=[
@@ -34,23 +35,44 @@ export class CartComponent {
     }
   }
 
-  incQty(id: number , quantity: any){
-    for(let i=0 ; i<this.getCartDetails ; i++){
-      if(this.getCartDetails[i].id === id){
-        this.getCartDetails.quantity = parseInt(this.getCartDetails.quantity) + 1
-      }
+  incQty(item:any){
+    item.quantity=item.quantity+1
     localStorage.setItem('localCart' , JSON.stringify(this.getCartDetails))
+    this.getTotal()
+  }
+  
+
+  decQty(item:any){
+    if(item.quantity!=1){
+      item.quantity=item.quantity-1
+    }
+    localStorage.setItem('localCart' , JSON.stringify(this.getCartDetails)) 
+    this.getTotal()
+  }
+
+  subTotal:number=0
+
+  getTotal(){
+    if(localStorage.getItem('localCart')){
+      this.getCartDetails = JSON.parse(localStorage.getItem('localCart')!)
+      this.subTotal = this.getCartDetails.reduce(function(acc: any , val: any){
+        return acc +(val.price * val.quantity);
+      },0)
     }
   }
 
-  decQty(id: number , quantity: any){
-    for(let i=0 ; i<this.getCartDetails ; i++){
-      if(this.getCartDetails[i].id === id){
-        this.getCartDetails[i].quantity = parseInt(quantity) - 1
+
+  singleDelete(item: any ){
+    console.log(item);
+    if(localStorage.getItem('localCart')){
+      this.getCartDetails = JSON.parse(localStorage.getItem('localCart')!);
+      for(let i=0 ; i<this.getCartDetails ; i++){
+        if(this.getCartDetails[i].id=== item){
+          this.getCartDetails.spice(i,1);
+          localStorage.setItem( 'localCart', JSON.stringify(this.getCartDetails))
+        }
       }
     }
-    localStorage.setItem('localCart' , JSON.stringify(this.getCartDetails))
     
   }
-
 }

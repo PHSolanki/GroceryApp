@@ -37,26 +37,35 @@ export class HomeComponent {
     {id:9, source:'/assets/featured1.PNG' , quantity:1, name:'Redish ' , category:'Vegetables' , rater:'By Mr.food' , price:'12',moneyOfferPrice:'10'},
     {id:10, source:'/assets/topsells1.PNG' , quantity:1, name:'Orange ' , category:'Fruits' , rater:'By Mr.food' , price:'12.99',moneyOfferPrice:'10'},
     {id:11, source:'/assets/featured3.PNG' , quantity:1, name:'Tomatos ' , category:'Vegetables' , rater:'By Mr.food' , price:'12.99',moneyOfferPrice:'10'},
-    {id:12, source:'/assets/topsells1.PNG' , quantity:1, name:'Orange ' , category:'Fruits' , rater:'By Mr.food' , price:'14.99',moneyOfferPrice:'10'}
+    {id:12, source:'/assets/topsells1.PNG' , quantity:1, name:'Orange ' , category:'Fruits' , rater:'By Mr.food' , price:'14.99',moneyOfferPrice:'10'},
+    {id:13 , source:'assets/topsells1.PNG' ,quantity:1, name:'Orange 1kg' , category:'Fruits', price:'2' },
+    {id:14 , source:'assets/topsells2.PNG' ,quantity:1, name:'Orange 1kg' , category:'Vegetables', price:'4' },
+    {id:15 , source:'assets/topsells1.PNG' ,quantity:1, name:'Orange 1kg' , category:'Fruits', price:'6' },
+    {id:16 , source:'assets/topsells2.PNG' ,quantity:1, name:'Orange 1kg' , category:'Vegetables',price:'6' },
+    {id:17 , source:'assets/topsells1.PNG' ,quantity:1, name:'Orange 1kg' ,category:'Fruits', price:'5' },
+    {id:18 , source:'assets/topsells2.PNG' ,quantity:1, name:'Orange 1kg' ,category:'Vegetables', price:'3' },
+    {id:19 , source:'assets/topsells1.PNG' ,quantity:1, name:'Orange 1kg' ,category:'Fruits', price:'10' },
+    {id:21 , source:'assets/topsells1.PNG' , quantity:1, name:'Orange 1kg' ,category:'Vegetables', price:'13' }
   ]
 
 
  topsells=[
-  {name:'Orange 1kg' , source:'assets/topsells1.PNG' , price:'2' },
-  {name:'Orange 1kg' , source:'assets/topsells2.PNG' , price:'4' },
-  {name:'Orange 1kg' , source:'assets/topsells1.PNG' , price:'6' }
+  {id:13 ,name:'Orange 1kg' , source:'assets/topsells1.PNG' , price:'2' },
+  {id:14 ,name:'Orange 1kg' , source:'assets/topsells2.PNG' , price:'4' },
+  {id:15 ,name:'Orange 1kg' , source:'assets/topsells1.PNG' , price:'6' },
+  {id:20 ,name:'Orange 1kg' , source:'assets/topsells2.PNG' , price:'15' },
  ]
 
  toprated=[
-  {name:'Orange 1kg' , source:'assets/topsells2.PNG' , price:'6' },
-  {name:'Orange 1kg' , source:'assets/topsells1.PNG' , price:'5' },
-  {name:'Orange 1kg' , source:'assets/topsells2.PNG' , price:'3' }
+  {id:16 ,name:'Orange 1kg' , source:'assets/topsells2.PNG' , price:'6' },
+  {id:17 ,name:'Orange 1kg' , source:'assets/topsells1.PNG' , price:'5' },
+  {id:18 ,name:'Orange 1kg' , source:'assets/topsells2.PNG' , price:'3' }
  ]
 
  trendingItems=[
-  {name:'Orange 1kg' , source:'assets/topsells1.PNG' , price:'10' },
-  {name:'Orange 1kg' , source:'assets/topsells2.PNG' , price:'15' },
-  {name:'Orange 1kg' , source:'assets/topsells1.PNG' , price:'13' }
+  {id:19 ,name:'Orange 1kg' , source:'assets/topsells1.PNG' , price:'10' },
+  {id:20 ,name:'Orange 1kg' , source:'assets/topsells2.PNG' , price:'15' },
+  {id:21 ,name:'Orange 1kg' , source:'assets/topsells1.PNG' , price:'13' }
  ]
 
 recentlyAdded=[
