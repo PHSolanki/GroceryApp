@@ -21,3 +21,8 @@ table {
   tr:nth-child(even) {
     background-color: #dddddd;
   }
+
+  .someproducts{
+    margin-left: 475px;
+    padding: 10px;
+  }

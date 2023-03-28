@@ -84,4 +84,8 @@ export class CartComponent {
   checkout(){
     this.router.navigate(['front/cart/checkout'])
   }
+
+  addProducts(){
+    this.router.navigate(['front/catalogue/product-list'])
+  }
 }

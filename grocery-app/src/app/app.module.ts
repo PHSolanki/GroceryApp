@@ -12,7 +12,9 @@ import { FilterComponent } from './front/catalogue/filter/filter.component';
 import { ProductListComponent } from './front/catalogue/product-list/product-list.component';
 import { HomeComponent } from './front/home/home.component';
  
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import { ToastrModule } from 'ngx-toastr';
 const appRoute : Routes = [
   
 ]
@@ -31,7 +33,9 @@ const appRoute : Routes = [
     BrowserModule,
     AppRoutingModule,
     IvyCarouselModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule, // required animations module
+    ToastrModule.forRoot(), // ToastrModule added
    
   ],
   providers: [],

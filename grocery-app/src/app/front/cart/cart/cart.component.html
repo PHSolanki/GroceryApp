@@ -1,7 +1,7 @@
 <section class="cart-section">
     <h2>Cart</h2>
     <div class="container">
-        <table>
+        <table *ngIf="getCartDetails.length else emptycart">
             <tr>
                 <th>Image</th>
                 <th>Name</th>
@@ -13,7 +13,7 @@
             <tr *ngFor="let item of getCartDetails">
                 <td><img src="{{item.source}}" alt=""></td>
                 <td>{{item.name}}</td>
-                <td>{{item.price}}$</td>
+                <td>{{item.price | currency : 'USD'}}</td>
                 <td>
                     <div class="button my-5 p-2">
                         <button class=" btn-light" (click)="decQty(item)" >-</button>
@@ -21,17 +21,22 @@
                         <button class=" btn-light" (click)="incQty(item)" >+</button>
                       </div>
                 </td>
-                <td>{{item.quantity * item.price}}</td>
+                <td>{{item.quantity * item.price | currency : 'USD'}}</td>
                 <td><button class="delete" (click)="singleDelete(item.id)"><i class="fas fa-trash"></i></button></td>
             </tr>
         </table>
+        
     </div>
+    <ng-template #emptycart >
+        <h2>Your Cart is empty</h2>
+        <button class="btn btn-success someproducts my-5 " (click)="addProducts()">Add some Products</button>
+    </ng-template>
     <br>
     <div class="table-responsive container d-flex justify-content-end mt-3 mb-3" >
-        <table>
+        <table *ngIf="getCartDetails.length">
             <tr>
                 <td class="fs-6">Subtotal:</td>
-                <td class="fs-6">{{ subTotal | currency}}</td>
+                <td class="fs-6">{{ subTotal | currency : 'USD'}}</td>
             </tr>
             <tr>
                 <td class="fs-6">Delivery Charges :</td>
@@ -39,11 +44,11 @@
             </tr>
             <tr class="mb-2">
                 <td class="fs-6 fw-bolder">Total Price:</td>
-                <td class="fs-6 fw-bolder">{{ subTotal | currency}}</td>
+                <td class="fs-6 fw-bolder">{{ subTotal | currency : 'USD'}}</td>
             </tr>
             <tr>
                 <td colspan="2" class="text-center">
-                    <button type="button" class="btn btn-success w-100" (click)="checkout()" *ngIf="getCartDetails">Checkout</button>
+                    <button type="button" class="btn btn-success w-100" (click)="checkout()"  >Checkout</button>
                 </td>
             </tr>
         </table>

@@ -11,11 +11,8 @@ import { SuccessComponent } from './cart/success/success.component';
 
 @NgModule({
   declarations: [
-
-    
-  
     CheckoutComponent,
-             SuccessComponent
+    SuccessComponent
   ],
   imports: [
     CommonModule,

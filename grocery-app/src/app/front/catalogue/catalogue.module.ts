@@ -7,9 +7,7 @@ import { ProductListComponent } from './product-list/product-list.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
 import { HomeComponent } from '../home/home.component';
 import { FilterComponent } from './filter/filter.component';
-import { FormsModule } from '@angular/forms';
-
-
+import { FormsModule } from '@angular/forms'
 
 
 @NgModule({
@@ -21,7 +19,7 @@ import { FormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     CatalogueRoutingModule,
-    FormsModule
+    FormsModule,
   ]
 })
 export class CatalogueModule { }

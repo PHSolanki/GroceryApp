@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-product-details',
@@ -8,7 +9,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ProductDetailsComponent implements OnInit{
 
-  constructor(private activatedroute:ActivatedRoute ){  }
+  constructor(private activatedroute:ActivatedRoute , private toast:ToastrService){  }
 
   value:any;
 
@@ -63,7 +64,7 @@ export class ProductDetailsComponent implements OnInit{
 
   addToCart(category: any){
 
-    alert("Product Successfully added into cart");
+    this.toast.success('product added to cart')
 
     console.log(category);
 
