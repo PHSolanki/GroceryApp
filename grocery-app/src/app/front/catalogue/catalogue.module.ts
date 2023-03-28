@@ -8,14 +8,14 @@ import { ProductDetailsComponent } from './product-details/product-details.compo
 import { HomeComponent } from '../home/home.component';
 import { FilterComponent } from './filter/filter.component';
 import { FormsModule } from '@angular/forms';
-import { CartComponent } from '../cart/cart.component';
+
 
 
 
 @NgModule({
   declarations: [
     ProductDetailsComponent,
-    CartComponent
+    
     
   ],
   imports: [

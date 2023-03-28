@@ -1,0 +1,29 @@
+<br><br>
+
+
+<h2 class="text-center"><b>Checkout</b></h2>
+<div class="container mt-4 mb-4 p-2">
+    <div class="row justify-content-center">
+      <div class="col-md-5 ms-4">
+          <h3 class="text-center">Select Delivery Address</h3>
+        <div class="card mt-4 ms-4">
+          <div *ngFor="let address of address_user" class="ms-4">
+            <div class="form-check mt-4">
+              <input type="radio" class="form-check-input" name="address" id="{{address.id}}">
+              <label class="form-check-label" for="{{address.id}}">{{address.address}}</label>
+            </div>
+          </div>
+          <div class="card-body ms-4">
+            <h5 class="card-title">Review Order</h5>
+            <h6 class="card-subtitle mb-2 text-muted">By placing an order you agree to our Terms And Conditions</h6>
+            <p class="card-text">Payment Method : <b>Cash On Delivery</b></p>
+            <p class="card-text">Grand Total : <b></b></p>
+          </div>
+          <div class="d-flex justify-content-center mb-2"> 
+            <button class="btn btn-outline-secondary m-1" (click)="Cancel_Checkout()" >Cancel</button>
+            <button class="btn btn-success m-1" (click)="Place_Order()">Place an Order</button>
+          </div> 
+        </div>
+      </div>
+    </div>
+  </div>

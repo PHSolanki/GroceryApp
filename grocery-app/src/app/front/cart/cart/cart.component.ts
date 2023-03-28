@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Route, Router } from '@angular/router';
 
 @Component({
   selector: 'app-cart',
@@ -6,6 +7,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./cart.component.css']
 })
 export class CartComponent {
+
+  constructor(private router:Router){}
 
   ngOnInit(){
     this.cartDetails()
@@ -66,13 +69,19 @@ export class CartComponent {
     console.log(item);
     if(localStorage.getItem('localCart')){
       this.getCartDetails = JSON.parse(localStorage.getItem('localCart')!);
-      for(let i=0 ; i<this.getCartDetails ; i++){
-        if(this.getCartDetails[i].id=== item){
-          this.getCartDetails.spice(i,1);
+      
+      for(let i=0 ; i<this.getCartDetails.length ; i++){
+        if(this.getCartDetails[i].id===item){
+          this.getCartDetails.splice(i,1);
+          console.log(this.getCartDetails);
           localStorage.setItem( 'localCart', JSON.stringify(this.getCartDetails))
         }
       }
-    }
-    
+    }    
+  }
+
+
+  checkout(){
+    this.router.navigate(['front/cart/checkout'])
   }
 }

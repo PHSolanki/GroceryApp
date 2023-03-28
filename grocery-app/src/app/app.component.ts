@@ -9,20 +9,16 @@ export class AppComponent {
   title = 'grocery-app';
 
   ngOnInit(){
-    this.cartItemFunc();
+    this.cartItemFunc()
   }
 
   cartItem:number=0;
 
   cartItemFunc(){
     if(localStorage.getItem('localCart') != null){
-
       var cartCount = JSON.parse(localStorage.getItem('localCart')!)
       console.log(cartCount);
-      this.cartItem= cartCount.length
-
-
-      
-    }
+      this.cartItem= cartCount.length      
+    }    
   }
 }
